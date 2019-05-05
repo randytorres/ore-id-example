@@ -17,7 +17,7 @@ export const SigningOptions = ({
     permissions.map((permission, index) =>  {
       let provider = permission.externalWalletType || 'oreid';
       return (
-        <div style={{ alignContent: 'center' }}>
+        <div style={{ alignContent: 'center' }} key={permission.permission}>
           <Button
             provider={provider}
             data-tag={index}

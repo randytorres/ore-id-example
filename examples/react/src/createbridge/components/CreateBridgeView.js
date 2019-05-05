@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import styled from '@emotion/styled'
 import { getEosJsRPC } from '../../global/api'
 import { Origin } from './Origin'
 
@@ -20,7 +21,6 @@ export const CreateBridgeView = () => {
 
   const handleSetOrigins= async () => {
     const tableData = await fetchTableRows()
-    console.info(tableData)
     setOrigins(tableData)
   }
 
@@ -29,9 +29,13 @@ export const CreateBridgeView = () => {
   }, [])
 
   return (
-    <div>
+    <Container>
       <h3>Create Bridge</h3>
-      {origins.map((origin) => <Origin origin={origin} />)}
-    </div>
+      {origins.map((origin) => <Origin key={JSON.stringify(origin)} origin={origin} />)}
+    </Container>
   )
 }
+
+const Container = styled.div({
+  marginLeft: 20,
+})
