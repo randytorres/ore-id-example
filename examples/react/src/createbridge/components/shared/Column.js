@@ -15,6 +15,12 @@ export const Column = (props) => (
 export const Row = styled.div({
   display: 'flex',
   alignItems: 'center',
+
+  '@media (max-width: 500px)': {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    textAlign: 'center',
+  }
 })
 
 export const Label = styled.p({

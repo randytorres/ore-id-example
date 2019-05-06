@@ -32,11 +32,16 @@ export const Button = (props) => {
   }
 
   checkValidProvider(props.provider)
+  
+  const providerStyle = require(`../assets/${props.provider}-style.json`)
 
   return (
-    <button style={{ ...defaultButtonStyle, ...props.buttonStyle }} onClick={props.onClick}> 
+    <button
+      style={{ ...defaultButtonStyle, ...props.buttonStyle, ...providerStyle.buttonStyle }}
+      onClick={props.onClick}
+     > 
       <img
-        style={{ ...defaultLogoStyle, ...props.logoStyle }}
+        style={{ ...defaultLogoStyle, ...props.logoStyle, ...providerStyle.logoStyle }}
         src={require(`../../global/assets/${props.provider}-logo.png`)}
         alt={props.text}
       />
