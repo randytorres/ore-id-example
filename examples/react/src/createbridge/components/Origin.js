@@ -1,6 +1,7 @@
 import React from 'react'
+import styled from '@emotion/styled'
 
-import { Container, Row, Label  } from './shared'
+import { Container, Column } from './shared'
 import { ContributorsContainer } from './ContributorsContainer'
 
 export const Origin = ({ origin }) => {
@@ -9,12 +10,28 @@ export const Origin = ({ origin }) => {
   }
   return (
     <Container>
-      {Object.keys(origin).map((key) => (
-        <Row key={key}>
-          <Label>{key}:</Label>
-          <div>{isContributer(key) ? <ContributorsContainer contributors={origin[key]} /> : origin[key]}</div>
-        </Row>
-      ))}
+      <Title>App Name: {origin.origin}</Title>
+      <Column
+        column={origin}
+        render={(columnKey) => (
+          <Row>
+            { isContributer(columnKey)
+              ? <ContributorsContainer contributors={origin[columnKey]} />
+              : origin[columnKey]
+            }
+          </Row>
+        )}
+      />
     </Container>
   )
 }
+
+const Row = styled.div({
+  width: '100%',
+})
+
+const Title = styled.p({
+  textAlign: 'center',
+  fontSize: '2rem',
+  fontWeight: 'bold',
+})

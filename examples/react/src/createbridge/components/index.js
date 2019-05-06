@@ -1,1 +1,1 @@
-export * from './CreateBridgeView'
+export * from './CreateBridge'

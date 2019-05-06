@@ -1,18 +1,18 @@
 import React from 'react'
-import { Container, Row, Label } from './shared'
+import styled from '@emotion/styled'
+
+import { Container as _Container, Column } from './shared'
 
 export const ContributorsView = ({ isVisible, contributor, handleClick }) => (
   <Container onClick={() => handleClick(contributor.contributor)}>
-    {!isVisible
-      ? <p>Contributor: {contributor.contributor}</p>
-      : Object.keys(contributor).map((key) => {
-          return (
-            <Row key={key}>
-              <Label>{key}:</Label>
-              <div>{contributor[key]}</div>
-            </Row>
-          )
-        })
+    { !isVisible
+      ? <p><strong>{contributor.contributor}</strong></p>
+      : <Column column={contributor} render={(columnKey) => <div>{contributor[columnKey]}</div>}/>
     }
   </Container>
 )
+
+const Container = styled(_Container)({
+  borderWidth: '5px',
+  cursor: 'pointer',
+})

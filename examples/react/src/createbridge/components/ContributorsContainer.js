@@ -1,15 +1,16 @@
 import React, { useState }from 'react'
+
 import { ContributorsView } from './ContributorsView'
 
 export const ContributorsContainer = (props) => {
   const [openContainers, setOpenContainers] = useState({})
 
   const handleClick = (contributor) => {
-    const newOpenContainers = {
+    const newOpenContainersState = {
       ...openContainers,
       [contributor]: !openContainers[contributor]
     }
-    setOpenContainers(newOpenContainers)
+    setOpenContainers(newOpenContainersState)
   }
   
   return props.contributors.map((contributor) => (

@@ -36,8 +36,8 @@ export const AppContainer = () => {
   const [isBusy, setIsBusy] = useState(false)
   const [userInfo, setUserInfo] = useState({})
   const [errorMessage, setErrorMessage] = useState('')
-  const [signedTransaction, setSignedTransaction] = useState({})
-  const [signState, setSignState] = useState({})
+  const [signedTransaction, setSignedTransaction] = useState(null)
+  const [signState, setSignState] = useState(null)
 
   // called by library to set local busy state
   const setBusyCallback = (isBusy) => {
@@ -202,7 +202,7 @@ export const AppContainer = () => {
     loadUserFromLocalState();
     handleAuthCallback();
     handleSignCallback();
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <AppView

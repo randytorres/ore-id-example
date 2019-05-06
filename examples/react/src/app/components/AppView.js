@@ -4,7 +4,7 @@ import { Login } from '../../login'
 import { UserDetails } from '../../user'
 import { DiscoveryOptions } from './DiscoveryOptions'
 import { SigningOptions } from './SigningOptions'
-import { CreateBridgeView } from '../../createbridge'
+import { CreateBridge } from '../../createbridge'
 
 export const AppView = ({
   isLoggedIn,
@@ -38,6 +38,6 @@ export const AppView = ({
       {signState && `Returned state param: ${signState}`}
     </div>
     {isLoggedIn && <DiscoveryOptions chainNetwork={chainNetworkForExample} handleWalletDiscoverButton={handleWalletDiscoverButton} />}
-    {isLoggedIn && <CreateBridgeView />}
+    {isLoggedIn && <CreateBridge />}
   </div>
 )

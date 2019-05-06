@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
+
 import { getEosJsRPC } from '../../global/api'
 import { Origin } from './Origin'
 
 const rpc = getEosJsRPC()
 
-export const CreateBridgeView = () => {
+export const CreateBridge = () => {
   const [origins, setOrigins] = useState([])
 
   const fetchTableRows = async () => {
@@ -19,12 +20,13 @@ export const CreateBridgeView = () => {
     return result.rows
   }
 
-  const handleSetOrigins= async () => {
-    const tableData = await fetchTableRows()
-    setOrigins(tableData)
-  }
 
   useEffect(() => {
+    const handleSetOrigins= async () => {
+      const tableData = await fetchTableRows()
+      setOrigins(tableData)
+    }
+  
     handleSetOrigins()
   }, [])
 

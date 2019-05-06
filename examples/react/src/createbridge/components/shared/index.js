@@ -1,3 +1,2 @@
 export * from './Container'
-export * from './Label'
-export * from './Row'
+export * from './Column'
